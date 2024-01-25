@@ -3,8 +3,9 @@ FROM eclipse-temurin:17-jdk-jammy as base
 LABEL authors="cinderelsa"
 WORKDIR /app
 COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN mvnw dependency:resolve
+COPY pom.xml 
+COPY mvnw ./
+RUN ./mvnw dependency:resolve
 COPY src ./src
 
 FROM base as test
