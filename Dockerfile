@@ -4,7 +4,7 @@ LABEL authors="cinderelsa"
 WORKDIR /app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
-RUN ./mvnw dependency:resolve
+RUN mvnw dependency:resolve
 COPY src ./src
 
 FROM base as test
